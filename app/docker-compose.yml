@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: apache_app_custom
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site:/usr/local/apache2/htdocs/
+      - ./apache/my-app.conf:/usr/local/apache2/conf/httpd.conf
+    restart: always
